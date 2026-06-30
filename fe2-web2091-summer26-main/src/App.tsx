@@ -93,9 +93,9 @@ function App() {
       </div>
       {/* lap1 */}
       <Layout>
-        <Header style={{ color: '#fff' }}>Header</Header>
+        <Header style={{ color: 'white' }}>Header</Header>
         <Layout>
-          <Sider width={220} style={{ color: '#fff' }}>
+          <Sider width={220} style={{ color: 'white' }}>
             Sidebar
           </Sider>
           <Content style={{ padding: 20 }}>Content</Content>
