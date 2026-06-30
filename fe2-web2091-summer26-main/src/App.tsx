@@ -1,10 +1,11 @@
 import { Toaster } from 'react-hot-toast';
-import { Link } from 'react-router-dom';
 import { Layout } from 'antd';
 import { Form, Input, Button } from 'antd';
 import { Table } from 'antd';
 import { Modal } from 'antd';
 import { useState } from 'react';
+import { Routes, Route, Link } from 'react-router-dom';
+import Lap1 from './lap/lap1';
 function App() {
   const { Header, Content, Footer, Sider } = Layout;
   const onFinish = (values: any) => {
@@ -21,10 +22,17 @@ function App() {
     { key: 2, name: 'Anna', email: 'lehao123@gmail.com', role: 'user' },
   ];
   const [open, setOpen] = useState(false);
-  //lap 1
 
   return (
     <>
+      <nav>
+        <Link to="/">Home</Link> |<Link to="/lap1">Lap1</Link>
+      </nav>
+
+      <Routes>
+        <Route path="/lap1" element={<Lap1></Lap1>} />
+      </Routes>
+
       <nav className="bg-blue-600 text-white shadow">
         <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
           <Link to="#" className="text-xl font-semibold">
@@ -91,66 +99,6 @@ function App() {
           </Modal>
         </>
       </div>
-      {/* lap1 */}
-      <Layout>
-        <Header style={{ color: 'white' }}>Header</Header>
-        <Layout>
-          <Sider width={220} style={{ color: 'white' }}>
-            Sidebar
-          </Sider>
-          <Content style={{ padding: 20 }}>Content</Content>
-        </Layout>
-      </Layout>
-
-      <Form onFinish={onFinish}>
-        <label htmlFor="">Nhập Name</label>
-        <Form.Item name="name" rules={[{ required: true, message: 'Nhập email' }]}>
-          <Input placeholder="name" />
-        </Form.Item>
-        <label htmlFor="">Nhập email</label>
-        <Form.Item name="email" rules={[{ required: true, message: 'Nhập email' }]}>
-          <Input placeholder="Email" />
-        </Form.Item>
-        <label htmlFor="">Nhập password</label>
-        <Form.Item name="password" rules={[{ required: true, message: 'Nhập password' }]}>
-          <Input placeholder="Password" />
-        </Form.Item>
-
-        <Form.Item>
-          <Button htmlType="submit" type="primary">
-            Register
-          </Button>
-        </Form.Item>
-      </Form>
-
-      <Table columns={columns} dataSource={data} />
-
-      <>
-        <Button onClick={() => setOpen(true)}>AddUser</Button>
-
-        <Modal open={open} onCancel={() => setOpen(false)} onOk={() => setOpen(false)}>
-          <Form onFinish={onFinish}>
-            <label htmlFor="">Name</label>
-            <Form.Item name="name" rules={[{ required: true, message: 'Nhập email' }]}>
-              <Input placeholder="name" />
-            </Form.Item>
-            <label htmlFor="">Age</label>
-            <Form.Item name="Age" rules={[{ required: true, message: 'Nhập tuoi' }]}>
-              <Input placeholder="Age" />
-            </Form.Item>
-            <label htmlFor="">Email</label>
-            <Form.Item name="Email" rules={[{ required: true, message: 'Nhập email' }]}>
-              <Input placeholder="Email" />
-            </Form.Item>
-
-            <Form.Item>
-              <Button htmlType="submit" type="primary">
-                Save
-              </Button>
-            </Form.Item>
-          </Form>
-        </Modal>
-      </>
       <Toaster />
     </>
   );
