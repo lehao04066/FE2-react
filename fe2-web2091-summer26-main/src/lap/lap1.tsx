@@ -5,6 +5,7 @@ import { Form, Input, Button } from 'antd';
 import { Table } from 'antd';
 import { Modal } from 'antd';
 import { useState } from 'react';
+import Lap2 from './lap2';
 const lap1 = () => {
   const { Header, Content, Sider } = Layout;
   const onFinish = (values: any) => {
@@ -81,6 +82,7 @@ const lap1 = () => {
             </Form.Item>
           </Form>
         </Modal>
+        <Lap2></Lap2>
       </>
     </>
   );

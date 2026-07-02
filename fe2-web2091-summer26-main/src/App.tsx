@@ -6,6 +6,7 @@ import { Modal } from 'antd';
 import { useState } from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 import Lap1 from './lap/lap1';
+import Lap2 from './lap/lap2';
 function App() {
   const { Header, Content, Footer, Sider } = Layout;
   const onFinish = (values: any) => {
@@ -97,6 +98,7 @@ function App() {
           <Modal open={open} onCancel={() => setOpen(false)} onOk={() => setOpen(false)}>
             Nội dung modal
           </Modal>
+          <Lap2></Lap2>
         </>
       </div>
       <Toaster />
